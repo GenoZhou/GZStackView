@@ -12,42 +12,49 @@ This frameworks cotains 3 main components: **StackViewController** class. **Stac
 
 This class implements a specialized view controller thats manages a stack view. Internally, it holds an array of **StackViewItem** as the context of its stack view. This class also provideds additional features like:
 
-- Scrolling Support
-- Customizable StackView
-- Customizable SeperatorView
-- ViewController Containment
+- **Scrolling Support**
+
+  The stack view is embeded in a scroll view contrained to layout guide. The scrolling direction will be determined by stack view axis.
+
+- **Customizable StackView**
+
+  Stack view can be configured when needed through a property exposed.
+
+- **Customizable SeperatorView**
+
+  Can be toggled individually and are managed automatically when items are inserted or removed.
 
 #### Symbols
 
-**var configuration: ((UIStackView) -> Void)?**
+- **var configuration: ((UIStackView) -> Void)?**
 
-Optional property to configure stack view (axis, aligment, distribution, spacing, etc;) before stack view controller get loaded.
+  Optional property to configure stack view (axis, aligment, distribution, spacing, etc;) before stack view controller get loaded.
 
-**public var seperatorClass: StackViewSeperatorType.Type?**
+- **var seperatorClass: StackViewSeperatorType.Type?**
 
-The property to set the class type of seperator view. Custom class can be used as long as it conforms to StackViewSeperatorType protocol. This property is required if seperator is required.
+  The property to set the class type of seperator view. Custom class can be used as long as it conforms to StackViewSeperatorType protocol. This property is required if seperator is required.
 
-**func addItem(_ item: StackViewItem, hideSeperator: Bool)**
+- **func addItem(_ item: StackViewItem, hideSeperator: Bool)**
 
-**func addItem(_ item: StackViewItem)**
+- **func addItem(_ item: StackViewItem)**
 
-**func removeItem(_ item: StackViewItem)**
+- **func removeItem(_ item: StackViewItem)**
 
-Public methods to manage the content of stack view controller. Any UIView subclass and UIViewController subclasses can be passed in as item. Custom classes can also be used as long as they conform to StackViewItem protocol. Seperator is displayed by default, but will not show anything if seperatorClass property is not set.
+  Public methods to manage the content of stack view controller. Any UIView subclass and UIViewController subclasses can be passed in as item. Custom classes can also be used as long as they conform to StackViewItem protocol. Seperator is displayed by default, but will not show anything if seperatorClass property is not set.
 
-**func insertItem(_ item: StackViewItem, atIndex index: Int, hideSeperator: Bool)**
+- **func insertItem(_ item: StackViewItem, atIndex index: Int, hideSeperator: Bool)**
 
-**func insertItem(_ item: StackViewItem, atIndex index: Int)**
+- **func insertItem(_ item: StackViewItem, atIndex index: Int)**
 
-**func removeItem( atIndex index: Int)**
+- **func removeItem( atIndex index: Int)**
 
-Same as above, but with index.
+  Same as above, but with index.
 
-**func addItems(_ items: [StackViewItem], hideSeperator: Bool)**
+- **func addItems(_ items: [StackViewItem], hideSeperator: Bool)**
 
-**func removeItems(_ items: [StackViewItem])**
+- **func removeItems(_ items: [StackViewItem])**
 
-Plural version of methods listed above.
+  Plural version of methods listed above.
 
 ### StackViewItem
 
@@ -67,6 +74,7 @@ This project is inspired by [seedco/StackViewController](https://github.com/seed
 
 ### Todo:
 
+- [ ] Background color support
 - [ ] Autoscroll support
 - [ ] Carthage/Cocoapods support
 - [ ] A **better** example
