@@ -21,6 +21,11 @@ open class StackViewController: UIViewController {
             setupstackViewAxisConstraint()
         }
     }
+    open var backgroundColor: UIColor? = .white {
+        didSet {
+            scrollView.backgroundColor = backgroundColor
+        }
+    }
     open var seperatorClass: StackViewSeperatorType.Type?
     
     // MARK: - Private properties
@@ -93,6 +98,7 @@ open class StackViewController: UIViewController {
         let item = items[index]
         items.remove(at: index)
         stackView.removeArrangedSubview(item.viewForStack)
+        item.viewForStack.removeFromSuperview()
         if let controller = item.controllerForStack {
             controller.willMove(toParentViewController: nil)
             controller.removeFromParentViewController()

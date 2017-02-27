@@ -30,6 +30,10 @@ This class implements a specialized view controller thats manages a stack view. 
 
   Optional property to configure stack view (axis, aligment, distribution, spacing, etc;) before stack view controller get loaded.
 
+- **var backgroundColor: UIColor?**
+
+  Optional property to configure background color. The default value is white.
+
 - **var seperatorClass: StackViewSeperatorType.Type?**
 
   The property to set the class type of seperator view. Custom class can be used as long as it conforms to StackViewSeperatorType protocol. This property is required if seperator is required.
@@ -74,7 +78,7 @@ This project is inspired by [seedco/StackViewController](https://github.com/seed
 
 ### Todo:
 
-- [ ] Background color support
+- [x] Background color support
 - [ ] Autoscroll support
 - [ ] Carthage/Cocoapods support
 - [ ] A **better** example
