@@ -88,7 +88,7 @@ open class StackViewController: UIViewController {
     open func removeItems(_ items: [StackViewItem]) {
         items.forEach {
             item in
-            guard let index = items.index(where: { $0 === item }) else { return }
+            guard let index = self.items.index(where: { $0 === item }) else { return }
             removeItem(atIndex: index)
         }
     }
