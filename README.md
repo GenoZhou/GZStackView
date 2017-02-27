@@ -67,11 +67,11 @@ This project is inspired by [seedco/StackViewController](https://github.com/seed
 
 ### Todo:
 
--[ ] Autoscroll support
--[ ] Carthage/Cocoapods support
--[ ] A **better** example
--[ ] Unit Tests
--[ ] CICD
+- [ ] Autoscroll support
+- [ ] Carthage/Cocoapods support
+- [ ] A **better** example
+- [ ] Unit Tests
+- [ ] CICD
 
 ## License
 
