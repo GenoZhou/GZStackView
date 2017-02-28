@@ -13,8 +13,8 @@ public protocol StackViewSeperatorType {
 }
 
 open class StackViewSeperatorView: UIView, StackViewSeperatorType {
-    open var thickness: CGFloat
-    open var axis: UILayoutConstraintAxis
+    public var thickness: CGFloat
+    public var axis: UILayoutConstraintAxis
     
     open override var intrinsicContentSize: CGSize {
         switch axis {
@@ -36,7 +36,7 @@ open class StackViewSeperatorView: UIView, StackViewSeperatorType {
         fatalError("init(coder:) has not been implemented")
     }
     
-    open static func attachTo(stackViewItem: StackViewItem, withAxis axis: UILayoutConstraintAxis) {
+    public static func attachTo(stackViewItem: StackViewItem, withAxis axis: UILayoutConstraintAxis) {
         let view = stackViewItem.viewForStack
         let seperator = StackViewSeperatorView(axis: axis)
         view.addSubview(seperator)

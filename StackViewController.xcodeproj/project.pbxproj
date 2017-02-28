@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		098F8A841E654091000BF160 /* ResponderObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098F8A831E654091000BF160 /* ResponderObservable.swift */; };
+		09AA7F951E63D3C300A859B3 /* AutoScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AA7F941E63D3C300A859B3 /* AutoScrollView.swift */; };
+		09AA7F971E63DE3D00A859B3 /* TextFieldRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AA7F961E63DE3D00A859B3 /* TextFieldRow.swift */; };
 		09AD80771E639E4D00026B6F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AD80761E639E4D00026B6F /* AppDelegate.swift */; };
 		09AD80791E639E4D00026B6F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AD80781E639E4D00026B6F /* ViewController.swift */; };
 		09AD807C1E639E4D00026B6F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09AD807A1E639E4D00026B6F /* Main.storyboard */; };
@@ -55,6 +58,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		098F8A831E654091000BF160 /* ResponderObservable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponderObservable.swift; sourceTree = "<group>"; };
+		09AA7F941E63D3C300A859B3 /* AutoScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoScrollView.swift; sourceTree = "<group>"; };
+		09AA7F961E63DE3D00A859B3 /* TextFieldRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldRow.swift; sourceTree = "<group>"; };
 		09AD80741E639E4D00026B6F /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09AD80761E639E4D00026B6F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		09AD80781E639E4D00026B6F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -107,6 +113,7 @@
 				09AD80761E639E4D00026B6F /* AppDelegate.swift */,
 				09AD80781E639E4D00026B6F /* ViewController.swift */,
 				09AD808B1E639EC800026B6F /* SwitchRow.swift */,
+				09AA7F961E63DE3D00A859B3 /* TextFieldRow.swift */,
 				09AD807A1E639E4D00026B6F /* Main.storyboard */,
 				09AD807D1E639E4D00026B6F /* Assets.xcassets */,
 				09AD807F1E639E4D00026B6F /* LaunchScreen.storyboard */,
@@ -139,6 +146,8 @@
 			isa = PBXGroup;
 			children = (
 				09CA196B1E639AD3005C195E /* StackViewController.h */,
+				098F8A831E654091000BF160 /* ResponderObservable.swift */,
+				09AA7F941E63D3C300A859B3 /* AutoScrollView.swift */,
 				09CA19821E639B24005C195E /* StackViewController.swift */,
 				09CA19841E639B47005C195E /* StackViewItem.swift */,
 				09CA19861E639B7B005C195E /* StackViewSeperatorType.swift */,
@@ -307,6 +316,7 @@
 			files = (
 				09AD808C1E639EC800026B6F /* SwitchRow.swift in Sources */,
 				09AD80791E639E4D00026B6F /* ViewController.swift in Sources */,
+				09AA7F971E63DE3D00A859B3 /* TextFieldRow.swift in Sources */,
 				09AD80771E639E4D00026B6F /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -316,7 +326,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				09CA19851E639B47005C195E /* StackViewItem.swift in Sources */,
+				098F8A841E654091000BF160 /* ResponderObservable.swift in Sources */,
 				09CA19871E639B7B005C195E /* StackViewSeperatorType.swift in Sources */,
+				09AA7F951E63D3C300A859B3 /* AutoScrollView.swift in Sources */,
 				09CA19831E639B24005C195E /* StackViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -572,6 +584,7 @@
 				09AD80841E639E4D00026B6F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		09CA19621E639AD3005C195E /* Build configuration list for PBXProject "StackViewController" */ = {
 			isa = XCConfigurationList;

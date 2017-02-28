@@ -20,6 +20,7 @@ class ViewController: StackViewController {
             $0.distribution = .equalSpacing
             $0.spacing = 0
         }
+        backgroundColor = .white
         seperatorClass = StackViewSeperatorView.self
         
         let switchA = SwitchRow(title: "SwitchA")
@@ -27,9 +28,21 @@ class ViewController: StackViewController {
         let switchC = SwitchRow(title: "SwitchC")
         let switchD = SwitchRow(title: "SwitchD")
         let switchE = SwitchRow(title: "SwitchE")
-        let array = [switchA, switchB, switchC, switchD, switchE]
+        let textFieldA = TextFieldRow(placeholder: "A", keyboardType: .default)
+        let textFieldB = TextFieldRow(placeholder: "B", keyboardType: .default)
+        let textFieldC = TextFieldRow(placeholder: "C", keyboardType: .default)
+        let textFieldD = TextFieldRow(placeholder: "D", keyboardType: .default)
+        let textFieldE = TextFieldRow(placeholder: "E", keyboardType: .default)
+        let textFieldF = TextFieldRow(placeholder: "F", keyboardType: .default)
+        let textFieldG = TextFieldRow(placeholder: "G", keyboardType: .default)
+        let textFieldH = TextFieldRow(placeholder: "H", keyboardType: .default)
+        let array = [switchA, switchB, switchC, switchD, switchE, textFieldA, textFieldB, textFieldC, textFieldD, textFieldE, textFieldF, textFieldG, textFieldH]
         addItems(array)
         
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
     }
 
     override func didReceiveMemoryWarning() {

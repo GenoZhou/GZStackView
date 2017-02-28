@@ -13,6 +13,21 @@ public protocol StackViewItem: AnyObject {
     var controllerForStack: UIViewController? { get }
 }
 
+public extension StackViewItem {
+    public func registerSubviewRespondersTo(_ observable: ResponderObservable) {
+        viewForStack.subviews.forEach {
+            if $0.canBecomeFirstResponder {
+                observable.registerResponder($0, withRelativeView: self.viewForStack)
+            }
+        }
+    }
+    public func unregisterSubviewRespondersFrom(_ observable: ResponderObservable) {
+        viewForStack.subviews.forEach {
+            if $0.canBecomeFirstResponder { observable.unregisterResponder($0) }
+        }
+    }
+}
+
 extension UIView: StackViewItem {
     public var viewForStack: UIView { return self }
     public var controllerForStack: UIViewController? { return nil }

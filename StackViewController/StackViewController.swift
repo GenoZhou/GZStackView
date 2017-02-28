@@ -12,7 +12,7 @@ open class StackViewController: UIViewController {
     
     // MARK: - Public properties
     
-    open var configuration: ((UIStackView) -> Void)? {
+    public var configuration: ((UIStackView) -> Void)? {
         didSet {
             if let configuration = configuration {
                 configuration(stackView)
@@ -21,16 +21,16 @@ open class StackViewController: UIViewController {
             setupstackViewAxisConstraint()
         }
     }
-    open var backgroundColor: UIColor? = .white {
+    public var backgroundColor: UIColor? = .white {
         didSet {
             scrollView.backgroundColor = backgroundColor
         }
     }
-    open var seperatorClass: StackViewSeperatorType.Type?
+    public var seperatorClass: StackViewSeperatorType.Type?
     
     // MARK: - Private properties
-    
-    private var scrollView = UIScrollView()
+
+    private var scrollView = AutoScrollView()
     private var stackView = UIStackView()
     private var stackViewAxisConstraint: NSLayoutConstraint?
     private var items: [StackViewItem] = []
@@ -55,18 +55,18 @@ open class StackViewController: UIViewController {
         stackView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor).isActive = true
         setupstackViewAxisConstraint()
     }
-    
+
     // MARK: - Public Methods
     
-    open func addItem(_ item: StackViewItem, hideSeperator: Bool = false) {
+    public func addItem(_ item: StackViewItem, hideSeperator: Bool = false) {
         insertItem(item, atIndex: items.count, hideSeperator: hideSeperator)
     }
     
-    open func addItems(_ items: [StackViewItem], hideSeperator: Bool = false) {
+    public func addItems(_ items: [StackViewItem], hideSeperator: Bool = false) {
         items.forEach { addItem($0, hideSeperator: hideSeperator) }
     }
     
-    open func insertItem(_ item: StackViewItem, atIndex index: Int, hideSeperator: Bool = false) {
+    public func insertItem(_ item: StackViewItem, atIndex index: Int, hideSeperator: Bool = false) {
         guard index <= items.count && index >= 0 else { fatalError("index out of range") }
         items.insert(item, at: index)
         stackView.insertArrangedSubview(item.viewForStack, at: index)
@@ -78,14 +78,15 @@ open class StackViewController: UIViewController {
             let axis: UILayoutConstraintAxis = (stackView.axis == UILayoutConstraintAxis.horizontal) ? .vertical : .horizontal
             seperatorClass?.attachTo(stackViewItem: item, withAxis: axis)
         }
+        item.registerSubviewRespondersTo(scrollView)
     }
     
-    open func removeItem(_ item: StackViewItem) {
+    public func removeItem(_ item: StackViewItem) {
         guard let index = items.index(where: { $0 === item }) else { return }
         removeItem(atIndex: index)
     }
     
-    open func removeItems(_ items: [StackViewItem]) {
+    public func removeItems(_ items: [StackViewItem]) {
         items.forEach {
             item in
             guard let index = self.items.index(where: { $0 === item }) else { return }
@@ -93,7 +94,7 @@ open class StackViewController: UIViewController {
         }
     }
     
-    open func removeItem( atIndex index: Int) {
+    public func removeItem( atIndex index: Int) {
         guard index <= items.count && index >= 0 else { fatalError("index out of range") }
         let item = items[index]
         items.remove(at: index)
@@ -103,6 +104,7 @@ open class StackViewController: UIViewController {
             controller.willMove(toParentViewController: nil)
             controller.removeFromParentViewController()
         }
+        item.unregisterSubviewRespondersFrom(scrollView)
     }
     
     // MARK: - Private Methods
