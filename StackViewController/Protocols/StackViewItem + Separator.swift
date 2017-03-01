@@ -1,5 +1,5 @@
 //
-//  StackViewItem + Seperator.swift
+//  StackViewItem + Separator.swift
 //  StackViewController
 //
 //  Created by GenoZhou on 2017-02-26.
@@ -23,6 +23,6 @@ extension UIViewController: StackViewItem {
     public var controllerForStack: UIViewController? { return self }
 }
 
-public protocol StackViewItemSeperator {
+public protocol StackViewItemSeparator {
     static func attachTo(stackViewItem: StackViewItem, withAxis axis: UILayoutConstraintAxis)
 }

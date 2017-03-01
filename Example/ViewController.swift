@@ -9,17 +9,12 @@
 import UIKit
 import StackViewController
 
-class ViewController: StackViewController {
+class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        configuration = {
-            $0.axis = .vertical
-            $0.alignment = .fill
-            $0.distribution = .equalSpacing
-            $0.spacing = 0
-        }
+        
         
         let switchA = SwitchRow(title: "SwitchA")
         let switchB = SwitchRow(title: "SwitchB")

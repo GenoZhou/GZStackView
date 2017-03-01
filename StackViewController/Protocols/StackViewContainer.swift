@@ -1,59 +1,52 @@
 //
-//  StackViewController.swift
+//  StackViewContainer.swift
 //  StackViewController
 //
-//  Created by GenoZhou on 2017-02-26.
+//  Created by Mobile on 2017-03-01.
 //  Copyright © 2017 GenoZhou. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
-open class StackViewController: UIViewController {
+public protocol StackViewContainer: class {
+    var autoScrollView: AutoScrollView { get }
+    var stackView: UIStackView { get }
+    var items: [StackViewItem] { get set }
+    var backgroundColor: UIColor { get }
+    var separatorClass: StackViewItemSeparator.Type { get }
+}
+
+extension StackViewContainer where Self: UIViewController {
     
-    // MARK: - Properties
-    
-    public var configuration: ((UIStackView) -> Void)? {
-        didSet {
-            if let configuration = configuration {
-                configuration(stackView)
-            }
-            guard stackViewAxisConstraint != nil else { return }
-            updateStackViewAxisConstraint()
+    public func layoutAutoScrollView() {
+        if !view.subviews.contains(autoScrollView) {
+            view.addSubview(autoScrollView)
         }
-    }
-    public var backgroundColor: UIColor = .white {
-        didSet {
-            autoScrollView.backgroundColor = backgroundColor
-        }
-    }
-    public var seperatorClass: StackViewItemSeperator.Type? = BaseSeperatorView.self
-    
-    var autoScrollView: AutoScrollView = AutoScrollView()
-    var stackView: UIStackView = UIStackView()
-    var stackViewAxisConstraint: NSLayoutConstraint?
-    var items: [StackViewItem] = []
-    
-    // MARK: - Lifecycle
-    
-    open override func loadView() {
-        super.loadView()
-        view.addSubview(autoScrollView)
         autoScrollView.translatesAutoresizingMaskIntoConstraints = false
         autoScrollView.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor).isActive = true
         autoScrollView.bottomAnchor.constraint(equalTo: bottomLayoutGuide.topAnchor).isActive = true
         autoScrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         autoScrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        
-        autoScrollView.addSubview(stackView)
+    }
+    
+    public func layoutStackView() {
+        if !autoScrollView.subviews.contains(stackView) {
+            autoScrollView.addSubview(stackView)
+        }
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.topAnchor.constraint(equalTo: autoScrollView.topAnchor).isActive = true
         stackView.bottomAnchor.constraint(equalTo: autoScrollView.bottomAnchor).isActive = true
         stackView.leadingAnchor.constraint(equalTo: autoScrollView.leadingAnchor).isActive = true
         stackView.trailingAnchor.constraint(equalTo: autoScrollView.trailingAnchor).isActive = true
-        updateStackViewAxisConstraint()
+        switch stackView.axis {
+        case .horizontal:
+            stackView.heightAnchor.constraint(equalTo: autoScrollView.heightAnchor).isActive = true
+            stackView.widthAnchor.constraint(equalTo: autoScrollView.widthAnchor).isActive = false
+        case .vertical:
+            stackView.heightAnchor.constraint(equalTo: autoScrollView.heightAnchor).isActive = false
+            stackView.widthAnchor.constraint(equalTo: autoScrollView.widthAnchor).isActive = true
+        }
     }
-
-    // MARK: - Public Methods
     
     public func addItem(_ item: StackViewItem, hideSeperator: Bool = false) {
         insertItem(item, atIndex: items.count, hideSeperator: hideSeperator)
@@ -80,7 +73,7 @@ open class StackViewController: UIViewController {
         // add seperator if needed
         if !hideSeperator {
             let axis: UILayoutConstraintAxis = (stackView.axis == UILayoutConstraintAxis.horizontal) ? .vertical : .horizontal
-            seperatorClass?.attachTo(stackViewItem: item, withAxis: axis)
+            separatorClass.attachTo(stackViewItem: item, withAxis: axis)
         }
     }
     
@@ -126,17 +119,4 @@ open class StackViewController: UIViewController {
         }
     }
     
-    // MARK: - Private Methods
-    
-    private func updateStackViewAxisConstraint() {
-        stackViewAxisConstraint?.isActive = false
-        switch stackView.axis {
-        case .horizontal:
-            stackViewAxisConstraint = stackView.heightAnchor.constraint(equalTo: autoScrollView.heightAnchor)
-        case .vertical:
-            stackViewAxisConstraint = stackView.widthAnchor.constraint(equalTo: autoScrollView.widthAnchor)
-        }
-        stackViewAxisConstraint?.isActive = true
-    }
-
 }

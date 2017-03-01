@@ -6,80 +6,31 @@ So why not having a UIStackViewController for UIStackView?
 
 ## Overview
 
-This frameworks offers 2 main classes: **StackViewController** and **AutoScrollView**.
+The key components of this framework are **AutoScrollView** class, **StackViewContainer** protocol, and **StackViewItem** protocol.
 
-**StackViewController** class implements a specialized view controller that manages a stack view and an auto scroll view. Any subclass of UIView and UIView can be added as StackViewItem through public apis. This class will be reponsible of maintaining a StackViewItem array as context. This class also provides some additional features like:
+**AutoScrollView** subclasses UIView and add autoscrolling feature by observing keyboard and first responder. 
 
-- **Scrolling Support**
+**StackViewContainer** sets the requirements of creating a fully featured UIStackView wrapper and provides various extensions to add/remove items while keeping everything managed internally in between auto scroll view and stack view. As an example, **SimpleStackViewController** class is included that implements the protocol to get features like autoscrolling for stack view, separator customization, background color property, etc;.
 
-  Make stack view scrollable based on its axis.
+**StackViewItem** offers a unified interface that enables StackViewContainer to add/remove both views and view controllers and keep references of added items on track.
 
-- **Autoscroll Support**
+In addition, a uiview subclass **BaseSeparatorView** conforming **StackViewItemSeparator** protocol is available and being used as default separator in **SimpleStackViewController** class.
 
-  Automatically adjust scroll view content inset and scroll to first responder when keyboard appears.
+## How to use
 
-- **Configurable StackView**
+There are different ways to take advantages of this framework.
 
-  The stack view can be easily configured through a property.
+You can just grab SimpleStackViewController, initiate an instance, or subclass from it to make magic work as long as it is good enough to cover your need.
 
-- **Customizable Seperator**
+An individual project 'Example' is included that demonstrates the approach of initiating SimpleStackViewController instance and adding it as child controller.
 
-  Can be toggled for individual stack item. Can be customized by registering custom seperator view class.
+However, I **highly recommend** you to create your own view controller class that conforms to StackViewContainer protocol. 
 
-#### Symbols
-
-- **var configuration: ((UIStackView) -> Void)?**
-
-  Optional property to configure stack view (axis, aligment, distribution, spacing, etc;). 
-
-- **var backgroundColor: UIColor?**
-
-  Optional property to set background color. The default value is white.
-
-- **var seperatorClass: StackViewItemSeperator.Type?**
-
-  The property to set the class type of seperator view. Custom class can be used as long as it conforms to StackViewItemSeperator protocol. This property is required if seperator is required.
-
-- **func addItem(_ item: StackViewItem, hideSeperator: Bool)**
-
-- **func addItem(_ item: StackViewItem)**
-
-- **func addItems(_ items: [StackViewItem], hideSeperator: Bool)**
-
-- **func insertItem(_ item: StackViewItem, atIndex index: Int, hideSeperator: Bool)**
-
-- **func insertItem(_ item: StackViewItem, atIndex index: Int)**
-
-- **func insertItems(_ items: [StackViewItem], fromIndex index: Int, hideSeperator: Bool = false)**
-
-- **func removeItem( atIndex index: Int)**
-
-- **func removeItem(_ item: StackViewItem)**
-
-- **func removeItems(_ items: [StackViewItem])**
-
-
-**AutoScrollView** is a subclass of UIScrollView. 
-
-<Under Construction….>
-
-#### Symbols
-
-- **isAutoScrollEnabled: Bool**
-
-  A property to set if auto scroll feature is enabled.
-
-- **func addManagedSubview(_ view: UIView)**
-
-- **func removeManagedSubview(_ view: UIView)**
-
-## Example
-
-An example project available under /Example, better one coming soon!
+SimpleStackViewController is literally a good example that injects a pack of great features without defining any method.
 
 ## About this project
 
-This project is inspired by [seedco/StackViewController](https://github.com/seedco/StackViewController). The concepts are brilliant but implementation is a bit complicated for Geno, so he ended up mimicing and crafting his own.
+This project is inspired by [seedco/StackViewController](https://github.com/seedco/StackViewController). The concepts are brilliant but implementation seems a bit too complicated for Geno, so Geno ended up crafting his own.
 
 ### Todo:
 
