@@ -10,11 +10,11 @@ import UIKit
 import StackViewController
 
 class ViewController: UIViewController {
-
+    
+    let stackVC = SimpleStackViewController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
         
         let switchA = SwitchRow(title: "SwitchA")
         let switchB = SwitchRow(title: "SwitchB")
@@ -30,8 +30,14 @@ class ViewController: UIViewController {
         let textFieldG = TextFieldRow(placeholder: "G", keyboardType: .default)
         let textFieldH = TextFieldRow(placeholder: "H", keyboardType: .default)
         let array = [switchA, switchB, switchC, switchD, switchE, textFieldA, textFieldB, textFieldC, textFieldD, textFieldE, textFieldF, textFieldG, textFieldH]
-        addItems(array)
         
+        
+        let stackVC = SimpleStackViewController()
+        view.addSubview(stackVC.view)
+        stackVC.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        stackVC.addItems(array)
+        addChildViewController(stackVC)
+        stackVC.didMove(toParentViewController: self)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

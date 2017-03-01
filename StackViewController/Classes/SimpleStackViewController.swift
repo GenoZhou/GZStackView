@@ -13,14 +13,14 @@ open class SimpleStackViewController: UIViewController, StackViewContainer {
     // MARK: - Properties
     
     public var autoScrollView: AutoScrollView = AutoScrollView()
-    public var stackView: UIStackView {
+    public var stackView: UIStackView = {
         let view = UIStackView()
-        view.axis = .horizontal
+        view.axis = .vertical
         view.alignment = .fill
         view.distribution = .equalSpacing
         view.spacing = 0
         return view
-    }
+    }()
     public var items: [StackViewItem] = []
     public var backgroundColor: UIColor = .white
     public var separatorClass: StackViewItemSeparator.Type = BaseSeparatorView.self
