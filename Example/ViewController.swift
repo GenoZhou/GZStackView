@@ -20,8 +20,6 @@ class ViewController: StackViewController {
             $0.distribution = .equalSpacing
             $0.spacing = 0
         }
-        backgroundColor = .white
-        seperatorClass = StackViewSeperatorView.self
         
         let switchA = SwitchRow(title: "SwitchA")
         let switchB = SwitchRow(title: "SwitchB")

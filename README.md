@@ -6,67 +6,72 @@ So why not having a UIStackViewController for UIStackView?
 
 ## Overview
 
-This frameworks cotains 3 main components: **StackViewController** class. **StackViewItem** protocol, and **StackViewSeperatorType** protocol.
+This frameworks offers 2 main classes: **StackViewController** and **AutoScrollView**.
 
-### StackViewController
-
-This class implements a specialized view controller thats manages a stack view. Internally, it holds an array of **StackViewItem** as the context of its stack view. This class also provideds additional features like:
+**StackViewController** class implements a specialized view controller that manages a stack view and an auto scroll view. Any subclass of UIView and UIView can be added as StackViewItem through public apis. This class will be reponsible of maintaining a StackViewItem array as context. This class also provides some additional features like:
 
 - **Scrolling Support**
 
-  The stack view is embeded in a scroll view contrained to layout guide. The scrolling direction will be determined by stack view axis.
+  Make stack view scrollable based on its axis.
 
-- **Customizable StackView**
+- **Autoscroll Support**
 
-  Stack view can be configured when needed through a property exposed.
+  Automatically adjust scroll view content inset and scroll to first responder when keyboard appears.
 
-- **Customizable SeperatorView**
+- **Configurable StackView**
 
-  Can be toggled individually and are managed automatically when items are inserted or removed.
+  The stack view can be easily configured through a property.
+
+- **Customizable Seperator**
+
+  Can be toggled for individual stack item. Can be customized by registering custom seperator view class.
 
 #### Symbols
 
 - **var configuration: ((UIStackView) -> Void)?**
 
-  Optional property to configure stack view (axis, aligment, distribution, spacing, etc;) before stack view controller get loaded.
+  Optional property to configure stack view (axis, aligment, distribution, spacing, etc;). 
 
 - **var backgroundColor: UIColor?**
 
-  Optional property to configure background color. The default value is white.
+  Optional property to set background color. The default value is white.
 
-- **var seperatorClass: StackViewSeperatorType.Type?**
+- **var seperatorClass: StackViewItemSeperator.Type?**
 
-  The property to set the class type of seperator view. Custom class can be used as long as it conforms to StackViewSeperatorType protocol. This property is required if seperator is required.
+  The property to set the class type of seperator view. Custom class can be used as long as it conforms to StackViewItemSeperator protocol. This property is required if seperator is required.
 
 - **func addItem(_ item: StackViewItem, hideSeperator: Bool)**
 
 - **func addItem(_ item: StackViewItem)**
 
-- **func removeItem(_ item: StackViewItem)**
-
-  Public methods to manage the content of stack view controller. Any UIView subclass and UIViewController subclasses can be passed in as item. Custom classes can also be used as long as they conform to StackViewItem protocol. Seperator is displayed by default, but will not show anything if seperatorClass property is not set.
+- **func addItems(_ items: [StackViewItem], hideSeperator: Bool)**
 
 - **func insertItem(_ item: StackViewItem, atIndex index: Int, hideSeperator: Bool)**
 
 - **func insertItem(_ item: StackViewItem, atIndex index: Int)**
 
+- **func insertItems(_ items: [StackViewItem], fromIndex index: Int, hideSeperator: Bool = false)**
+
 - **func removeItem( atIndex index: Int)**
 
-  Same as above, but with index.
-
-- **func addItems(_ items: [StackViewItem], hideSeperator: Bool)**
+- **func removeItem(_ item: StackViewItem)**
 
 - **func removeItems(_ items: [StackViewItem])**
 
-  Plural version of methods listed above.
 
-### StackViewItem
+**AutoScrollView** is a subclass of UIScrollView. 
 
-UIView and UIViewController classes are extended by this protocol in this framework . You can also make your own class and make it conform to this protocol.
+<Under Construction….>
 
-### StackViewSeperatorType
+#### Symbols
 
-The framework offers a simple 1px seperator view class that conforms to this protocol. You can use that seperator by setting **seperatorClass** property of your stack view controller. You can use your own class and make it conform to this protocol.
+- **isAutoScrollEnabled: Bool**
+
+  A property to set if auto scroll feature is enabled.
+
+- **func addManagedSubview(_ view: UIView)**
+
+- **func removeManagedSubview(_ view: UIView)**
 
 ## Example
 
@@ -79,7 +84,7 @@ This project is inspired by [seedco/StackViewController](https://github.com/seed
 ### Todo:
 
 - [x] Background color support
-- [ ] Autoscroll support
+- [x] Autoscroll support
 - [ ] Carthage/Cocoapods support
 - [ ] A **better** example
 - [ ] Unit Tests

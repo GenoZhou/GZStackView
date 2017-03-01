@@ -10,7 +10,7 @@ import UIKit
 
 open class StackViewController: UIViewController {
     
-    // MARK: - Public properties
+    // MARK: - Properties
     
     public var configuration: ((UIStackView) -> Void)? {
         didSet {
@@ -18,42 +18,39 @@ open class StackViewController: UIViewController {
                 configuration(stackView)
             }
             guard stackViewAxisConstraint != nil else { return }
-            setupstackViewAxisConstraint()
+            updateStackViewAxisConstraint()
         }
     }
-    public var backgroundColor: UIColor? = .white {
+    public var backgroundColor: UIColor = .white {
         didSet {
-            scrollView.backgroundColor = backgroundColor
+            autoScrollView.backgroundColor = backgroundColor
         }
     }
-    public var seperatorClass: StackViewSeperatorType.Type?
+    public var seperatorClass: StackViewItemSeperator.Type? = BaseSeperatorView.self
     
-    // MARK: - Private properties
-
-    private var scrollView = AutoScrollView()
-    private var stackView = UIStackView()
-    private var stackViewAxisConstraint: NSLayoutConstraint?
-    private var items: [StackViewItem] = []
+    var autoScrollView: AutoScrollView = AutoScrollView()
+    var stackView: UIStackView = UIStackView()
+    var stackViewAxisConstraint: NSLayoutConstraint?
+    var items: [StackViewItem] = []
     
     // MARK: - Lifecycle
     
     open override func loadView() {
         super.loadView()
+        view.addSubview(autoScrollView)
+        autoScrollView.translatesAutoresizingMaskIntoConstraints = false
+        autoScrollView.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor).isActive = true
+        autoScrollView.bottomAnchor.constraint(equalTo: bottomLayoutGuide.topAnchor).isActive = true
+        autoScrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        autoScrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         
-        view.addSubview(scrollView)
-        scrollView.translatesAutoresizingMaskIntoConstraints = false
-        scrollView.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor).isActive = true
-        scrollView.bottomAnchor.constraint(equalTo: bottomLayoutGuide.topAnchor).isActive = true
-        scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        
-        scrollView.addSubview(stackView)
+        autoScrollView.addSubview(stackView)
         stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
-        stackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
-        stackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor).isActive = true
-        stackView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor).isActive = true
-        setupstackViewAxisConstraint()
+        stackView.topAnchor.constraint(equalTo: autoScrollView.topAnchor).isActive = true
+        stackView.bottomAnchor.constraint(equalTo: autoScrollView.bottomAnchor).isActive = true
+        stackView.leadingAnchor.constraint(equalTo: autoScrollView.leadingAnchor).isActive = true
+        stackView.trailingAnchor.constraint(equalTo: autoScrollView.trailingAnchor).isActive = true
+        updateStackViewAxisConstraint()
     }
 
     // MARK: - Public Methods
@@ -67,18 +64,34 @@ open class StackViewController: UIViewController {
     }
     
     public func insertItem(_ item: StackViewItem, atIndex index: Int, hideSeperator: Bool = false) {
+        // precondition
         guard index <= items.count && index >= 0 else { fatalError("index out of range") }
+        // update stack view items
         items.insert(item, at: index)
+        // update stack view
         stackView.insertArrangedSubview(item.viewForStack, at: index)
+        // update auto scroll view
+        autoScrollView.registerRespondersFromView(item.viewForStack)
+        // add controller if exist
         if let controller = item.controllerForStack {
             addChildViewController(controller)
             controller.didMove(toParentViewController: self)
         }
+        // add seperator if needed
         if !hideSeperator {
             let axis: UILayoutConstraintAxis = (stackView.axis == UILayoutConstraintAxis.horizontal) ? .vertical : .horizontal
             seperatorClass?.attachTo(stackViewItem: item, withAxis: axis)
         }
-        item.registerSubviewRespondersTo(scrollView)
+    }
+    
+    public func insertItems(_ items: [StackViewItem], fromIndex index: Int, hideSeperator: Bool = false) {
+        // precondition
+        guard index <= items.count && index >= 0 else { fatalError("index out of range") }
+        var index = index
+        items.forEach {
+            insertItem($0, atIndex: index, hideSeperator: hideSeperator)
+            index += 1
+        }
     }
     
     public func removeItem(_ item: StackViewItem) {
@@ -95,27 +108,33 @@ open class StackViewController: UIViewController {
     }
     
     public func removeItem( atIndex index: Int) {
+        // precondition
         guard index <= items.count && index >= 0 else { fatalError("index out of range") }
+        // update stack view items
         let item = items[index]
         items.remove(at: index)
+        // update stack view
         stackView.removeArrangedSubview(item.viewForStack)
+        // update auto scroll view
+        autoScrollView.unregisterRespondersFromView(item.viewForStack)
+        // remove view from hierarchy
         item.viewForStack.removeFromSuperview()
+        // remove controller if exist
         if let controller = item.controllerForStack {
             controller.willMove(toParentViewController: nil)
             controller.removeFromParentViewController()
         }
-        item.unregisterSubviewRespondersFrom(scrollView)
     }
     
     // MARK: - Private Methods
     
-    private func setupstackViewAxisConstraint() {
+    private func updateStackViewAxisConstraint() {
         stackViewAxisConstraint?.isActive = false
         switch stackView.axis {
         case .horizontal:
-            stackViewAxisConstraint = stackView.heightAnchor.constraint(equalTo: scrollView.heightAnchor)
+            stackViewAxisConstraint = stackView.heightAnchor.constraint(equalTo: autoScrollView.heightAnchor)
         case .vertical:
-            stackViewAxisConstraint = stackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor)
+            stackViewAxisConstraint = stackView.widthAnchor.constraint(equalTo: autoScrollView.widthAnchor)
         }
         stackViewAxisConstraint?.isActive = true
     }

@@ -8,44 +8,57 @@
 
 import UIKit
 
-open class AutoScrollView: UIScrollView, ResponderObservable {
+open class AutoScrollView: UIScrollView, ResponderObserving, KeyboardObserving {
     
     // MARK: - Properties
     
-    public var responderObservingPoolKey = UnsafeMutablePointer<CInt>.allocate(capacity: 1)
+    public var isAutoScrollEnabled: Bool = true {
+        didSet {
+            isAutoScrollEnabled ? startObservingKeyboard() : stopObservingKeyboard()
+        }
+    }
+    
+    var responderObservingPool: [UIResponder : AnyObject?] = [:]
     
     // MARK: - Initialization
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        bindNotification()
+        startObservingKeyboard()
     }
     
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        bindNotification()
+        startObservingKeyboard()
     }
     
     deinit {
-        NotificationCenter.default.removeObserver(self)
-    }
-
-    // MARK: - Private Methods
-    
-    private func bindNotification() {
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: .UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: .UIKeyboardWillHide, object: nil)
+        stopObservingKeyboard()
     }
     
-    @objc private func keyboardWillShow(_ sender: Notification) {
+    // MARK: - Public Methods
+    
+    public func addManagedSubview(_ view: UIView) {
+        registerRespondersFromView(view)
+        addSubview(view)
+    }
+    
+    public func removeManagedSubview(_ view: UIView) {
+        unregisterRespondersFromView(view)
+        view.removeFromSuperview()
+    }
+    
+    // MARK: - KeyboardObserving
+    
+    func keyboardWillShow(_ sender: Notification) {
         guard
             let keyboardHeight = (sender.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue.height,
             let duration = sender.userInfo?[UIKeyboardAnimationDurationUserInfoKey] as? TimeInterval,
             let curveValue = sender.userInfo?[UIKeyboardAnimationCurveUserInfoKey] as? Int,
             let curve = UIViewAnimationCurve.init(rawValue: curveValue),
-            let frame = firstResponderRelativeFrame
-        else { return }
-
+            let frame = firstResponderFrame
+            else { return }
+        
         var animationOption: UIViewAnimationOptions
         switch curve {
         case .easeIn:
@@ -62,10 +75,10 @@ open class AutoScrollView: UIScrollView, ResponderObservable {
             self.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardHeight, right: 0)
             self.scrollRectToVisible(frame, animated: false)
         }, completion: nil)
-        
     }
     
-    @objc private func keyboardWillHide(_ sender: Notification) {
+    func keyboardWillHide(_ sender: Notification) {
         contentInset = UIEdgeInsets.zero
     }
+    
 }

@@ -8,37 +8,10 @@
 
 import Foundation
 
-public protocol StackViewSeperatorType {
-    static func attachTo(stackViewItem: StackViewItem, withAxis axis: UILayoutConstraintAxis)
-}
-
-open class StackViewSeperatorView: UIView, StackViewSeperatorType {
-    public var thickness: CGFloat
-    public var axis: UILayoutConstraintAxis
-    
-    open override var intrinsicContentSize: CGSize {
-        switch axis {
-        case .horizontal:
-            return CGSize(width: UIViewNoIntrinsicMetric, height: thickness)
-        case .vertical:
-            return CGSize(width: thickness, height: UIViewNoIntrinsicMetric)
-        }
-    }
-    
-    public init(thickness: CGFloat = 1.0, color: UIColor = .groupTableViewBackground, axis: UILayoutConstraintAxis) {
-        self.thickness = thickness
-        self.axis = axis
-        super.init(frame: .zero)
-        backgroundColor = color
-    }
-    
-    public required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
+extension BaseSeperatorView: StackViewItemSeperator {
     public static func attachTo(stackViewItem: StackViewItem, withAxis axis: UILayoutConstraintAxis) {
         let view = stackViewItem.viewForStack
-        let seperator = StackViewSeperatorView(axis: axis)
+        let seperator = BaseSeperatorView(axis: axis)
         view.addSubview(seperator)
         seperator.translatesAutoresizingMaskIntoConstraints = false
         switch axis {
@@ -51,6 +24,29 @@ open class StackViewSeperatorView: UIView, StackViewSeperatorType {
             seperator.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -1).isActive = true
             seperator.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         }
-        
     }
+}
+
+open class BaseSeperatorView: UIView {
+    
+    // MARK: - Properties
+    
+    public var axis: UILayoutConstraintAxis = .horizontal
+    open override var intrinsicContentSize: CGSize {
+        switch axis {
+        case .horizontal:
+            return CGSize(width: UIViewNoIntrinsicMetric, height: 1)
+        case .vertical:
+            return CGSize(width: 1, height: UIViewNoIntrinsicMetric)
+        }
+    }
+    
+    // MARK: - Initialization
+    
+    convenience init(axis: UILayoutConstraintAxis) {
+        self.init()
+        self.axis = axis
+        self.backgroundColor = .groupTableViewBackground
+    }
+    
 }

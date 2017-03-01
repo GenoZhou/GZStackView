@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		098F8A841E654091000BF160 /* ResponderObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098F8A831E654091000BF160 /* ResponderObservable.swift */; };
 		09AA7F951E63D3C300A859B3 /* AutoScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AA7F941E63D3C300A859B3 /* AutoScrollView.swift */; };
 		09AA7F971E63DE3D00A859B3 /* TextFieldRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AA7F961E63DE3D00A859B3 /* TextFieldRow.swift */; };
 		09AD80771E639E4D00026B6F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AD80761E639E4D00026B6F /* AppDelegate.swift */; };
@@ -22,8 +21,10 @@
 		09CA19771E639AD3005C195E /* StackViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09CA19761E639AD3005C195E /* StackViewControllerTests.swift */; };
 		09CA19791E639AD3005C195E /* StackViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 09CA196B1E639AD3005C195E /* StackViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		09CA19831E639B24005C195E /* StackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09CA19821E639B24005C195E /* StackViewController.swift */; };
-		09CA19851E639B47005C195E /* StackViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09CA19841E639B47005C195E /* StackViewItem.swift */; };
-		09CA19871E639B7B005C195E /* StackViewSeperatorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09CA19861E639B7B005C195E /* StackViewSeperatorType.swift */; };
+		09CA19851E639B47005C195E /* StackViewItem + Seperator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09CA19841E639B47005C195E /* StackViewItem + Seperator.swift */; };
+		09CA19871E639B7B005C195E /* BaseSeperatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09CA19861E639B7B005C195E /* BaseSeperatorView.swift */; };
+		09F7F36A1E6670B60075F26B /* KeyboardObserving.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F7F3691E6670B60075F26B /* KeyboardObserving.swift */; };
+		09F7F36C1E6670CD0075F26B /* ResponderObserving.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F7F36B1E6670CD0075F26B /* ResponderObserving.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,7 +59,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		098F8A831E654091000BF160 /* ResponderObservable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponderObservable.swift; sourceTree = "<group>"; };
 		09AA7F941E63D3C300A859B3 /* AutoScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoScrollView.swift; sourceTree = "<group>"; };
 		09AA7F961E63DE3D00A859B3 /* TextFieldRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldRow.swift; sourceTree = "<group>"; };
 		09AD80741E639E4D00026B6F /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -76,8 +76,10 @@
 		09CA19761E639AD3005C195E /* StackViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackViewControllerTests.swift; sourceTree = "<group>"; };
 		09CA19781E639AD3005C195E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		09CA19821E639B24005C195E /* StackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackViewController.swift; sourceTree = "<group>"; };
-		09CA19841E639B47005C195E /* StackViewItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackViewItem.swift; sourceTree = "<group>"; };
-		09CA19861E639B7B005C195E /* StackViewSeperatorType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackViewSeperatorType.swift; sourceTree = "<group>"; };
+		09CA19841E639B47005C195E /* StackViewItem + Seperator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "StackViewItem + Seperator.swift"; sourceTree = "<group>"; };
+		09CA19861E639B7B005C195E /* BaseSeperatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseSeperatorView.swift; sourceTree = "<group>"; };
+		09F7F3691E6670B60075F26B /* KeyboardObserving.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardObserving.swift; sourceTree = "<group>"; };
+		09F7F36B1E6670CD0075F26B /* ResponderObserving.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponderObserving.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,11 +148,8 @@
 			isa = PBXGroup;
 			children = (
 				09CA196B1E639AD3005C195E /* StackViewController.h */,
-				098F8A831E654091000BF160 /* ResponderObservable.swift */,
-				09AA7F941E63D3C300A859B3 /* AutoScrollView.swift */,
-				09CA19821E639B24005C195E /* StackViewController.swift */,
-				09CA19841E639B47005C195E /* StackViewItem.swift */,
-				09CA19861E639B7B005C195E /* StackViewSeperatorType.swift */,
+				09F7F36D1E6670D90075F26B /* Protocols */,
+				09F7F3701E6684F10075F26B /* Classes */,
 				09CA196C1E639AD3005C195E /* Info.plist */,
 			);
 			path = StackViewController;
@@ -163,6 +162,26 @@
 				09CA19781E639AD3005C195E /* Info.plist */,
 			);
 			path = StackViewControllerTests;
+			sourceTree = "<group>";
+		};
+		09F7F36D1E6670D90075F26B /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				09F7F3691E6670B60075F26B /* KeyboardObserving.swift */,
+				09F7F36B1E6670CD0075F26B /* ResponderObserving.swift */,
+				09CA19841E639B47005C195E /* StackViewItem + Seperator.swift */,
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
+		09F7F3701E6684F10075F26B /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				09AA7F941E63D3C300A859B3 /* AutoScrollView.swift */,
+				09CA19821E639B24005C195E /* StackViewController.swift */,
+				09CA19861E639B7B005C195E /* BaseSeperatorView.swift */,
+			);
+			name = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -325,9 +344,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				09CA19851E639B47005C195E /* StackViewItem.swift in Sources */,
-				098F8A841E654091000BF160 /* ResponderObservable.swift in Sources */,
-				09CA19871E639B7B005C195E /* StackViewSeperatorType.swift in Sources */,
+				09CA19851E639B47005C195E /* StackViewItem + Seperator.swift in Sources */,
+				09CA19871E639B7B005C195E /* BaseSeperatorView.swift in Sources */,
+				09F7F36A1E6670B60075F26B /* KeyboardObserving.swift in Sources */,
+				09F7F36C1E6670CD0075F26B /* ResponderObserving.swift in Sources */,
 				09AA7F951E63D3C300A859B3 /* AutoScrollView.swift in Sources */,
 				09CA19831E639B24005C195E /* StackViewController.swift in Sources */,
 			);
