@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		09A3D79A1E67F79D00D2BF99 /* AutoScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A3D7931E67F79D00D2BF99 /* AutoScrollView.swift */; };
+		09A3D79B1E67F79D00D2BF99 /* BaseSeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A3D7941E67F79D00D2BF99 /* BaseSeparatorView.swift */; };
+		09A3D79C1E67F79D00D2BF99 /* KeyboardObserving.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A3D7951E67F79D00D2BF99 /* KeyboardObserving.swift */; };
+		09A3D79D1E67F79D00D2BF99 /* ResponderObserving.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A3D7961E67F79D00D2BF99 /* ResponderObserving.swift */; };
+		09A3D79E1E67F79D00D2BF99 /* SimpleStackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A3D7971E67F79D00D2BF99 /* SimpleStackViewController.swift */; };
+		09A3D79F1E67F79D00D2BF99 /* StackViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A3D7981E67F79D00D2BF99 /* StackViewContainer.swift */; };
+		09A3D7A01E67F79D00D2BF99 /* StackViewItem + Separator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A3D7991E67F79D00D2BF99 /* StackViewItem + Separator.swift */; };
 		09AA7F971E63DE3D00A859B3 /* TextFieldRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AA7F961E63DE3D00A859B3 /* TextFieldRow.swift */; };
 		09AD80771E639E4D00026B6F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AD80761E639E4D00026B6F /* AppDelegate.swift */; };
 		09AD80791E639E4D00026B6F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AD80781E639E4D00026B6F /* ViewController.swift */; };
@@ -19,13 +26,6 @@
 		09CA19721E639AD3005C195E /* StackViewController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09CA19681E639AD3005C195E /* StackViewController.framework */; };
 		09CA19771E639AD3005C195E /* StackViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09CA19761E639AD3005C195E /* StackViewControllerTests.swift */; };
 		09CA19791E639AD3005C195E /* StackViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 09CA196B1E639AD3005C195E /* StackViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		759E49051E675ADE009F8CAF /* AutoScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759E48FD1E675ADE009F8CAF /* AutoScrollView.swift */; };
-		759E49061E675ADE009F8CAF /* BaseSeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759E48FE1E675ADE009F8CAF /* BaseSeparatorView.swift */; };
-		759E49071E675ADE009F8CAF /* SimpleStackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759E48FF1E675ADE009F8CAF /* SimpleStackViewController.swift */; };
-		759E49081E675ADE009F8CAF /* KeyboardObserving.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759E49011E675ADE009F8CAF /* KeyboardObserving.swift */; };
-		759E49091E675ADE009F8CAF /* ResponderObserving.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759E49021E675ADE009F8CAF /* ResponderObserving.swift */; };
-		759E490A1E675ADE009F8CAF /* StackViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759E49031E675ADE009F8CAF /* StackViewContainer.swift */; };
-		759E490B1E675ADE009F8CAF /* StackViewItem + Separator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759E49041E675ADE009F8CAF /* StackViewItem + Separator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +60,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		09A3D7931E67F79D00D2BF99 /* AutoScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoScrollView.swift; sourceTree = "<group>"; };
+		09A3D7941E67F79D00D2BF99 /* BaseSeparatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseSeparatorView.swift; sourceTree = "<group>"; };
+		09A3D7951E67F79D00D2BF99 /* KeyboardObserving.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardObserving.swift; sourceTree = "<group>"; };
+		09A3D7961E67F79D00D2BF99 /* ResponderObserving.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponderObserving.swift; sourceTree = "<group>"; };
+		09A3D7971E67F79D00D2BF99 /* SimpleStackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleStackViewController.swift; sourceTree = "<group>"; };
+		09A3D7981E67F79D00D2BF99 /* StackViewContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackViewContainer.swift; sourceTree = "<group>"; };
+		09A3D7991E67F79D00D2BF99 /* StackViewItem + Separator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "StackViewItem + Separator.swift"; sourceTree = "<group>"; };
 		09AA7F961E63DE3D00A859B3 /* TextFieldRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldRow.swift; sourceTree = "<group>"; };
 		09AD80741E639E4D00026B6F /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09AD80761E639E4D00026B6F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -75,13 +82,6 @@
 		09CA19711E639AD3005C195E /* StackViewControllerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StackViewControllerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		09CA19761E639AD3005C195E /* StackViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackViewControllerTests.swift; sourceTree = "<group>"; };
 		09CA19781E639AD3005C195E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		759E48FD1E675ADE009F8CAF /* AutoScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoScrollView.swift; sourceTree = "<group>"; };
-		759E48FE1E675ADE009F8CAF /* BaseSeparatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseSeparatorView.swift; sourceTree = "<group>"; };
-		759E48FF1E675ADE009F8CAF /* SimpleStackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleStackViewController.swift; sourceTree = "<group>"; };
-		759E49011E675ADE009F8CAF /* KeyboardObserving.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardObserving.swift; sourceTree = "<group>"; };
-		759E49021E675ADE009F8CAF /* ResponderObserving.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponderObserving.swift; sourceTree = "<group>"; };
-		759E49031E675ADE009F8CAF /* StackViewContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackViewContainer.swift; sourceTree = "<group>"; };
-		759E49041E675ADE009F8CAF /* StackViewItem + Separator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "StackViewItem + Separator.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +111,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		09A3D7A11E67F7A900D2BF99 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				09A3D7951E67F79D00D2BF99 /* KeyboardObserving.swift */,
+				09A3D7961E67F79D00D2BF99 /* ResponderObserving.swift */,
+				09A3D7981E67F79D00D2BF99 /* StackViewContainer.swift */,
+				09A3D7991E67F79D00D2BF99 /* StackViewItem + Separator.swift */,
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
+		09A3D7A21E67F7B300D2BF99 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				09A3D7931E67F79D00D2BF99 /* AutoScrollView.swift */,
+				09A3D7941E67F79D00D2BF99 /* BaseSeparatorView.swift */,
+				09A3D7971E67F79D00D2BF99 /* SimpleStackViewController.swift */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
 		09AD80751E639E4D00026B6F /* Example */ = {
 			isa = PBXGroup;
 			children = (
@@ -149,8 +170,8 @@
 		09CA196A1E639AD3005C195E /* StackViewController */ = {
 			isa = PBXGroup;
 			children = (
-				759E48FC1E675ADE009F8CAF /* Classes */,
-				759E49001E675ADE009F8CAF /* Protocols */,
+				09A3D7A21E67F7B300D2BF99 /* Classes */,
+				09A3D7A11E67F7A900D2BF99 /* Protocols */,
 				09CA196B1E639AD3005C195E /* StackViewController.h */,
 				09CA196C1E639AD3005C195E /* Info.plist */,
 			);
@@ -164,27 +185,6 @@
 				09CA19781E639AD3005C195E /* Info.plist */,
 			);
 			path = StackViewControllerTests;
-			sourceTree = "<group>";
-		};
-		759E48FC1E675ADE009F8CAF /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				759E48FD1E675ADE009F8CAF /* AutoScrollView.swift */,
-				759E48FE1E675ADE009F8CAF /* BaseSeparatorView.swift */,
-				759E48FF1E675ADE009F8CAF /* SimpleStackViewController.swift */,
-			);
-			path = Classes;
-			sourceTree = "<group>";
-		};
-		759E49001E675ADE009F8CAF /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				759E49011E675ADE009F8CAF /* KeyboardObserving.swift */,
-				759E49021E675ADE009F8CAF /* ResponderObserving.swift */,
-				759E49031E675ADE009F8CAF /* StackViewContainer.swift */,
-				759E49041E675ADE009F8CAF /* StackViewItem + Separator.swift */,
-			);
-			path = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -347,13 +347,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				759E49051E675ADE009F8CAF /* AutoScrollView.swift in Sources */,
-				759E490B1E675ADE009F8CAF /* StackViewItem + Separator.swift in Sources */,
-				759E49071E675ADE009F8CAF /* SimpleStackViewController.swift in Sources */,
-				759E49091E675ADE009F8CAF /* ResponderObserving.swift in Sources */,
-				759E490A1E675ADE009F8CAF /* StackViewContainer.swift in Sources */,
-				759E49081E675ADE009F8CAF /* KeyboardObserving.swift in Sources */,
-				759E49061E675ADE009F8CAF /* BaseSeparatorView.swift in Sources */,
+				09A3D79D1E67F79D00D2BF99 /* ResponderObserving.swift in Sources */,
+				09A3D7A01E67F79D00D2BF99 /* StackViewItem + Separator.swift in Sources */,
+				09A3D79A1E67F79D00D2BF99 /* AutoScrollView.swift in Sources */,
+				09A3D79B1E67F79D00D2BF99 /* BaseSeparatorView.swift in Sources */,
+				09A3D79F1E67F79D00D2BF99 /* StackViewContainer.swift in Sources */,
+				09A3D79C1E67F79D00D2BF99 /* KeyboardObserving.swift in Sources */,
+				09A3D79E1E67F79D00D2BF99 /* SimpleStackViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
