@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name          = "GZStackViewController"
   s.module_name   = "StackViewController"
-  s.version       = "1.0.1"
+  s.version       = "1.0.2"
   s.summary       = "Protocol powered approach of creating fully featured StackViewControllers in Swift3"
   s.description      = <<-DESC
 UIKit has UITableViewController for UITableView, as well as having UICollectionViewController for UICollectionView.
