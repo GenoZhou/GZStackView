@@ -1,5 +1,8 @@
 # StackViewController
 
+[![Build Status](https://travis-ci.org/GenoZhou/StackViewController.svg?branch=master)](https://travis-ci.org/GenoZhou/StackViewController)
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/genozhou/stackviewcontroller)
+
 UIKit has UITableViewController for UITableView, as well as having UICollectionViewController for UICollectionView.
 
 So why not having a UIStackViewController for UIStackView?
@@ -36,10 +39,10 @@ This project is inspired by [seedco/StackViewController](https://github.com/seed
 
 - [x] Background color support
 - [x] Autoscroll support
-- [ ] Carthage/Cocoapods support
+- [x] Carthage/Cocoapods support
 - [ ] A **better** example
 - [ ] Unit Tests
-- [ ] CICD
+- [x] CICD
 
 ## License
 
