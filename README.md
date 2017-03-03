@@ -19,6 +19,38 @@ The key components of this framework are **AutoScrollView** class, **StackViewCo
 
 In addition, a uiview subclass **BaseSeparatorView** conforming **StackViewItemSeparator** protocol is available and being used as default separator in **SimpleStackViewController** class.
 
+## Installation
+
+For **Carthage**:
+
+1. Add following to the end of your Cartfile:
+
+   ```
+   github "GenoZhou/StackViewController" ~> 1.0
+   ```
+
+2. Include following in Build Phases as instructed in [Carthage Doc](https://github.com/Carthage/Carthage):
+
+   ```
+   $(SRCROOT)/Carthage/Build/iOS/StackViewController.framework
+   ```
+
+3. Run `carthage update` as usual.
+
+For **Cocoapods**:
+
+1. Include following in your Podfile:
+
+   ```
+   pod 'GZStackViewController', '~> 1.0'
+   ```
+
+2. Run `pod install` as usual.
+
+For **Swift Hipster**: 
+
+Drag and Drop ? Whatever you want :)
+
 ## How to use
 
 There are different ways to take advantages of this framework.
@@ -33,7 +65,7 @@ SimpleStackViewController is literally a good example that injects a pack of gre
 
 ## About this project
 
-This project is inspired by [seedco/StackViewController](https://github.com/seedco/StackViewController). The concepts are brilliant but implementation seems a bit too complicated for Geno, so Geno ended up crafting his own.
+This project is inspired by [seedco/StackViewController](https://github.com/seedco/StackViewController). The concepts are brilliant but implementation seems too complicated for Geno, so Geno ended up crafting his own.
 
 ### Todo:
 
