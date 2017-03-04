@@ -28,6 +28,7 @@ extension StackViewContainer {
         if !superview.subviews.contains(autoScrollView) {
             superview.addSubview(autoScrollView)
         }
+        autoScrollView.backgroundColor = backgroundColor
         autoScrollView.translatesAutoresizingMaskIntoConstraints = false
         autoScrollView.topAnchor.constraint(equalTo: container.topLayoutGuide.bottomAnchor).isActive = true
         autoScrollView.bottomAnchor.constraint(equalTo: container.bottomLayoutGuide.topAnchor).isActive = true
