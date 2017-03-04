@@ -8,25 +8,31 @@
 
 import Foundation
 
-public protocol StackViewContainer: class {
+public protocol StackViewContainer: AnyObject {
+    var stackViewItems: [StackViewItem] { get set }
     var autoScrollView: AutoScrollView { get }
     var stackView: UIStackView { get }
-    var items: [StackViewItem] { get set }
     var backgroundColor: UIColor { get }
     var separatorClass: StackViewItemSeparator.Type { get }
+    var container: UIViewController { get }
 }
 
-extension StackViewContainer where Self: UIViewController {
-    
+extension StackViewContainer {
+    public var backgroundColor: UIColor { return .white }
+    public var separatorClass: StackViewItemSeparator.Type { return BaseSeparatorView.self }
+}
+
+extension StackViewContainer {
     public func layoutAutoScrollView() {
-        if !view.subviews.contains(autoScrollView) {
-            view.addSubview(autoScrollView)
+        let superview = container.view!
+        if !superview.subviews.contains(autoScrollView) {
+            superview.addSubview(autoScrollView)
         }
         autoScrollView.translatesAutoresizingMaskIntoConstraints = false
-        autoScrollView.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor).isActive = true
-        autoScrollView.bottomAnchor.constraint(equalTo: bottomLayoutGuide.topAnchor).isActive = true
-        autoScrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        autoScrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        autoScrollView.topAnchor.constraint(equalTo: container.topLayoutGuide.bottomAnchor).isActive = true
+        autoScrollView.bottomAnchor.constraint(equalTo: container.bottomLayoutGuide.topAnchor).isActive = true
+        autoScrollView.leadingAnchor.constraint(equalTo: superview.leadingAnchor).isActive = true
+        autoScrollView.trailingAnchor.constraint(equalTo: superview.trailingAnchor).isActive = true
     }
     
     public func layoutStackView() {
@@ -48,64 +54,64 @@ extension StackViewContainer where Self: UIViewController {
         }
     }
     
-    public func addItem(_ item: StackViewItem, hideSeperator: Bool = false) {
-        insertItem(item, atIndex: items.count, hideSeperator: hideSeperator)
+    public func addItem(_ item: StackViewItem, hideSeparator: Bool = false) {
+        insertItem(item, atIndex: stackViewItems.count, hideSeparator: hideSeparator)
     }
     
-    public func addItems(_ items: [StackViewItem], hideSeperator: Bool = false) {
-        items.forEach { addItem($0, hideSeperator: hideSeperator) }
+    public func addItems(_ items: [StackViewItem], hideSeparator: Bool = false) {
+        items.forEach { addItem($0, hideSeparator: hideSeparator) }
     }
     
-    public func insertItem(_ item: StackViewItem, atIndex index: Int, hideSeperator: Bool = false) {
+    public func insertItem(_ item: StackViewItem, atIndex index: Int, hideSeparator: Bool = false) {
         // precondition
-        guard index <= items.count && index >= 0 else { fatalError("index out of range") }
+        guard index <= stackViewItems.count && index >= 0 else { fatalError("index out of range") }
         // update stack view items
-        items.insert(item, at: index)
+        stackViewItems.insert(item, at: index)
         // update stack view
         stackView.insertArrangedSubview(item.viewForStack, at: index)
         // update auto scroll view
         autoScrollView.registerRespondersFromView(item.viewForStack)
         // add controller if exist
         if let controller = item.controllerForStack {
-            addChildViewController(controller)
-            controller.didMove(toParentViewController: self)
+            container.addChildViewController(controller)
+            controller.didMove(toParentViewController: container)
         }
-        // add seperator if needed
-        if !hideSeperator {
+        // add separator if needed
+        if !hideSeparator {
             let axis: UILayoutConstraintAxis = (stackView.axis == UILayoutConstraintAxis.horizontal) ? .vertical : .horizontal
             separatorClass.attachTo(stackViewItem: item, withAxis: axis)
         }
     }
     
-    public func insertItems(_ items: [StackViewItem], fromIndex index: Int, hideSeperator: Bool = false) {
+    public func insertItems(_ items: [StackViewItem], fromIndex index: Int, hideSeparator: Bool = false) {
         // precondition
         guard index <= items.count && index >= 0 else { fatalError("index out of range") }
         var index = index
         items.forEach {
-            insertItem($0, atIndex: index, hideSeperator: hideSeperator)
+            insertItem($0, atIndex: index, hideSeparator: hideSeparator)
             index += 1
         }
     }
     
     public func removeItem(_ item: StackViewItem) {
-        guard let index = items.index(where: { $0 === item }) else { return }
+        guard let index = stackViewItems.index(where: { $0 === item }) else { return }
         removeItem(atIndex: index)
     }
     
     public func removeItems(_ items: [StackViewItem]) {
         items.forEach {
             item in
-            guard let index = self.items.index(where: { $0 === item }) else { return }
+            guard let index = self.stackViewItems.index(where: { $0 === item }) else { return }
             removeItem(atIndex: index)
         }
     }
     
-    public func removeItem( atIndex index: Int) {
+    public func removeItem(atIndex index: Int) {
         // precondition
-        guard index <= items.count && index >= 0 else { fatalError("index out of range") }
+        guard index <= stackViewItems.count && index >= 0 else { fatalError("index out of range") }
         // update stack view items
-        let item = items[index]
-        items.remove(at: index)
+        let item = stackViewItems[index]
+        stackViewItems.remove(at: index)
         // update stack view
         stackView.removeArrangedSubview(item.viewForStack)
         // update auto scroll view
@@ -118,5 +124,8 @@ extension StackViewContainer where Self: UIViewController {
             controller.removeFromParentViewController()
         }
     }
-    
+}
+
+extension StackViewContainer where Self: UIViewController {
+    public var container: UIViewController { return self }
 }

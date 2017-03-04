@@ -21,7 +21,7 @@ open class SimpleStackViewController: UIViewController, StackViewContainer {
         view.spacing = 0
         return view
     }()
-    public var items: [StackViewItem] = []
+    public var stackViewItems: [StackViewItem] = []
     public var backgroundColor: UIColor = .white
     public var separatorClass: StackViewItemSeparator.Type = BaseSeparatorView.self
     var viewController: UIViewController {
