@@ -1,4 +1,4 @@
-# StackViewController
+# GZStackView
 
 [![Build Status](https://travis-ci.org/GenoZhou/StackViewController.svg?branch=master)](https://travis-ci.org/GenoZhou/StackViewController)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/genozhou/stackviewcontroller)
@@ -9,59 +9,52 @@ So why not having a UIStackViewController for UIStackView?
 
 ## Overview
 
-The key components of this framework are **AutoScrollView** class, **StackViewContainer** protocol, and **StackViewItem** protocol.
+3 key components of this framework are **AutoScrollView** class, **StackViewContainer** protocol, and **StackViewItem** protocol.
 
 **AutoScrollView** subclasses UIView and add autoscrolling feature by observing keyboard and first responder. 
 
-**StackViewContainer** sets the requirements of creating a fully featured UIStackView wrapper and provides various extensions to add/remove items while keeping everything managed internally in between auto scroll view and stack view. As an example, **SimpleStackViewController** class is included that implements the protocol to get features like autoscrolling for stack view, separator customization, background color property, etc;.
+**StackViewContainer** sets the requirements of creating a fully featured UIStackView wrapper and provides various extensions to add/remove items while keeping everything managed internally in between auto scroll view and stack view. 
+
+As an example, **BaseStackViewController** class is included that implements the protocol to get features like autoscrolling for stack view, separator customization, background color property, etc;.
 
 **StackViewItem** offers a unified interface that enables StackViewContainer to add/remove both views and view controllers and keep references of added items on track.
 
-In addition, a uiview subclass **BaseSeparatorView** conforming **StackViewItemSeparator** protocol is available and being used as default separator in **SimpleStackViewController** class.
+In addition, a uiview subclass **BaseSeparatorView** conforming **StackViewItemSeparator** protocol is available and being used as default separator in **BaseStackViewController** class.
 
 ## Installation
 
-For **Carthage**:
+Carthage:
 
-1. Add following to the end of your Cartfile:
+```
+// Cartfile
+github "GenoZhou/GZStackView" ~> 1.0
 
-   ```
-   github "GenoZhou/StackViewController" ~> 1.0
-   ```
+// Build Phases
+$(SRCROOT)/Carthage/Build/iOS/GZStackView.framework
 
-2. Include following in Build Phases as instructed in [Carthage Doc](https://github.com/Carthage/Carthage):
+// Run
+carthage update
+```
+Cocoapods:
 
-   ```
-   $(SRCROOT)/Carthage/Build/iOS/StackViewController.framework
-   ```
+```
+// Podfile
+pod 'GZStackView', '~> 1.0'
 
-3. Run `carthage update` as usual.
-
-For **Cocoapods**:
-
-1. Include following in your Podfile:
-
-   ```
-   pod 'GZStackViewController', '~> 1.0'
-   ```
-
-2. Run `pod install` as usual.
-
-For **Swift Hipster**: 
-
-Drag and Drop ? Whatever you want :)
-
+// Run
+pod install
+```
 ## How to use
 
 There are different ways to take advantages of this framework.
 
-You can just grab SimpleStackViewController, initiate an instance, or subclass from it to make magic work as long as it is good enough to cover your need.
+You can just grab BaseStackViewController, initiate an instance, or subclass from it to make magic work as long as it is good enough to cover your need.
 
-An individual project 'Example' is included that demonstrates the approach of initiating SimpleStackViewController instance and adding it as child controller.
+An individual project 'Example' is included that demonstrates the approach of initiating BaseStackViewController instance and adding it as child controller.
 
 However, I **highly recommend** you to create your own view controller class that conforms to StackViewContainer protocol. 
 
-SimpleStackViewController is literally a good example that injects a pack of great features without defining any method.
+BaseStackViewController is literally a good example that injects a pack of great features without defining any method.
 
 ## About this project
 
@@ -69,12 +62,10 @@ This project is inspired by [seedco/StackViewController](https://github.com/seed
 
 ### Todo:
 
-- [x] Background color support
-- [x] Autoscroll support
-- [x] Carthage/Cocoapods support
-- [ ] A **better** example
-- [ ] Unit Tests
-- [x] CICD
+- [ ] Add CHANGELOG
+- [ ] Animation
+- [ ] Add discussion about why uistackview and when uitableview
+- [ ] Add instruction of using this framework with interface builder
 
 ## License
 

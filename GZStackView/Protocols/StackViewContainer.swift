@@ -8,7 +8,7 @@
 
 import Foundation
 
-public protocol StackViewContainer: AnyObject {
+public protocol StackViewContainer: class {
     var stackViewItems: [StackViewItem] { get set }
     var autoScrollView: AutoScrollView { get }
     var stackView: UIStackView { get }
@@ -23,35 +23,31 @@ extension StackViewContainer {
 }
 
 extension StackViewContainer {
-    public func layoutAutoScrollView() {
-        let superview = container.view!
-        if !superview.subviews.contains(autoScrollView) {
-            superview.addSubview(autoScrollView)
+    public func layoutStackViewContainerIfNeeded() {
+        if !container.view.subviews.contains(autoScrollView) {
+            container.view.addSubview(autoScrollView)
+            autoScrollView.backgroundColor = backgroundColor
+            autoScrollView.translatesAutoresizingMaskIntoConstraints = false
+            autoScrollView.topAnchor.constraint(equalTo: container.topLayoutGuide.bottomAnchor).isActive = true
+            autoScrollView.bottomAnchor.constraint(equalTo: container.bottomLayoutGuide.topAnchor).isActive = true
+            autoScrollView.leadingAnchor.constraint(equalTo: container.view.leadingAnchor).isActive = true
+            autoScrollView.trailingAnchor.constraint(equalTo: container.view.trailingAnchor).isActive = true
         }
-        autoScrollView.backgroundColor = backgroundColor
-        autoScrollView.translatesAutoresizingMaskIntoConstraints = false
-        autoScrollView.topAnchor.constraint(equalTo: container.topLayoutGuide.bottomAnchor).isActive = true
-        autoScrollView.bottomAnchor.constraint(equalTo: container.bottomLayoutGuide.topAnchor).isActive = true
-        autoScrollView.leadingAnchor.constraint(equalTo: superview.leadingAnchor).isActive = true
-        autoScrollView.trailingAnchor.constraint(equalTo: superview.trailingAnchor).isActive = true
-    }
-    
-    public func layoutStackView() {
         if !autoScrollView.subviews.contains(stackView) {
             autoScrollView.addSubview(stackView)
-        }
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.topAnchor.constraint(equalTo: autoScrollView.topAnchor).isActive = true
-        stackView.bottomAnchor.constraint(equalTo: autoScrollView.bottomAnchor).isActive = true
-        stackView.leadingAnchor.constraint(equalTo: autoScrollView.leadingAnchor).isActive = true
-        stackView.trailingAnchor.constraint(equalTo: autoScrollView.trailingAnchor).isActive = true
-        switch stackView.axis {
-        case .horizontal:
-            stackView.heightAnchor.constraint(equalTo: autoScrollView.heightAnchor).isActive = true
-            stackView.widthAnchor.constraint(equalTo: autoScrollView.widthAnchor).isActive = false
-        case .vertical:
-            stackView.heightAnchor.constraint(equalTo: autoScrollView.heightAnchor).isActive = false
-            stackView.widthAnchor.constraint(equalTo: autoScrollView.widthAnchor).isActive = true
+            stackView.translatesAutoresizingMaskIntoConstraints = false
+            stackView.topAnchor.constraint(equalTo: autoScrollView.topAnchor).isActive = true
+            stackView.bottomAnchor.constraint(equalTo: autoScrollView.bottomAnchor).isActive = true
+            stackView.leadingAnchor.constraint(equalTo: autoScrollView.leadingAnchor).isActive = true
+            stackView.trailingAnchor.constraint(equalTo: autoScrollView.trailingAnchor).isActive = true
+            switch stackView.axis {
+            case .horizontal:
+                stackView.heightAnchor.constraint(equalTo: autoScrollView.heightAnchor).isActive = true
+                stackView.widthAnchor.constraint(equalTo: autoScrollView.widthAnchor).isActive = false
+            case .vertical:
+                stackView.heightAnchor.constraint(equalTo: autoScrollView.heightAnchor).isActive = false
+                stackView.widthAnchor.constraint(equalTo: autoScrollView.widthAnchor).isActive = true
+            }
         }
     }
     

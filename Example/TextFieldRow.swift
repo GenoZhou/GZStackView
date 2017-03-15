@@ -10,14 +10,13 @@ import UIKit
 
 class TextFieldRow: UIView {
     
-    
     let textField = UITextField()
     
     override var intrinsicContentSize: CGSize {
         return CGSize(width: UIViewNoIntrinsicMetric, height: 54)
     }
     
-    convenience init(placeholder: String, keyboardType: UIKeyboardType) {
+    convenience init(placeholder: String) {
         self.init()
         
         addSubview(textField)
@@ -27,7 +26,6 @@ class TextFieldRow: UIView {
         textField.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         
         textField.placeholder = placeholder
-        textField.keyboardType = keyboardType
     }
     
 }

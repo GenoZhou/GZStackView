@@ -1,15 +1,15 @@
 //
-//  StackViewControllerTests.swift
-//  StackViewControllerTests
+//  GZStackViewTests.swift
+//  GZStackViewTests
 //
-//  Created by GenoZhou on 2017-02-26.
+//  Created by GenoZhou on 2017-03-14.
 //  Copyright © 2017 GenoZhou. All rights reserved.
 //
 
 import XCTest
-@testable import StackViewController
+@testable import GZStackView
 
-class StackViewControllerTests: XCTestCase {
+class GZStackViewTests: XCTestCase {
     
     override func setUp() {
         super.setUp()

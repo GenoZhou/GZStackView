@@ -1,14 +1,14 @@
 //
-//  SimpleStackViewController.swift
-//  StackViewController
+//  BaseStackViewController.swift
+//  GZStackView
 //
-//  Created by GenoZhou on 2017-02-26.
+//  Created by GenoZhou on 2017-03-14.
 //  Copyright © 2017 GenoZhou. All rights reserved.
 //
 
 import UIKit
 
-open class SimpleStackViewController: UIViewController, StackViewContainer {
+open class BaseStackViewController: UIViewController, StackViewContainer {
     
     // MARK: - Properties
     
@@ -22,18 +22,19 @@ open class SimpleStackViewController: UIViewController, StackViewContainer {
         return view
     }()
     public var stackViewItems: [StackViewItem] = []
-    public var backgroundColor: UIColor = .white
-    public var separatorClass: StackViewItemSeparator.Type = BaseSeparatorView.self
-    var viewController: UIViewController {
-        return self
-    }
+    
+    // set by default
+    //    public var backgroundColor: UIColor = .white
+    //    public var separatorClass: StackViewItemSeparator.Type = BaseSeparatorView.self
+    //    var viewController: UIViewController { return self }
     
     // MARK: - Lifecycle
     
     open override func loadView() {
         super.loadView()
-        layoutAutoScrollView()
-        layoutStackView()
+        view.backgroundColor = .white
+        automaticallyAdjustsScrollViewInsets = false
+        layoutStackViewContainerIfNeeded()
     }
-
+    
 }

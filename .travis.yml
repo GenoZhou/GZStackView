@@ -8,16 +8,16 @@ before_install:
   - brew update
   - brew outdated carthage || brew upgrade carthage
 script:
-  - fastlane scan --scheme StackViewController
+  - fastlane scan --scheme GZStackView
 before_deploy:
   - carthage build --no-skip-current
-  - carthage archive StackViewController
+  - carthage archive GZStackView
 deploy:
   provider: releases
   api_key:
     secure: Z6zXAAgiSp2a3MTjXM+hdcENvIHUkWUG8iGkynWfdiarbr4hB3VMKVt9u9a0shCEc2T9tWDJXwkwf47P+s9pFqQ6FwEgXaStsluhINpXhA1xjeQgBax1i8cujS+dwJzJWEaSQEOdXjIfaXSFTNJV/WsVfdZS4Ry6Cr3pcEREoZIQCxco7GV5lhMxHJof+OVhotKwHf9But9SMW56yogmOoMvIY/PejhoGRywjvsdtG95BBfDcSXRBpO/fzdPk10sTRe4cVzSZkVso6sXNH9RoExHu3IVoF/VzXUmm66zrn0H2KvNNJ9zZ6evQfXKxd2U/cAG5HO4UrK4zcGMcWub6GxIS+YBaM716qsoi44hZKxyk25x8hjKJloNrb91tPZFLkTmAHrXN4T7Lqt6C6krsm3Dv1WuPsCv8isjUWniiq8E1qlP73VUJ0f13iN4YiUqQKHUZFyg7LqpyYrrLz+wfag3Jn9K0PDYsbLivRxYEfxG0A+hcQI2YofhBR+UajjzopYT5XAHI8UJtgvK7nPgqc+hfyBQo00uc4L5TOXYu6af2gvUGH4N0rkyjbZx7NNsJIv8tcPuOu27967VvxKfN+cvKWxxSOD1urfVHDza3+imvTKZulFkWyY0KDz++eeCwiWpJ91Oi9r58jXd7//EYt+kEYxZfm4qJcvZH5p8mzM=
-  file: StackViewController.framework.zip
+  file: GZStackView.framework.zip
   skip_cleanup: true
   on:
-    repo: GenoZhou/StackViewController
+    repo: GenoZhou/GZStackView
     tags: true
