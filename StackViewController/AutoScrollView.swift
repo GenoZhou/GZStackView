@@ -8,6 +8,7 @@
 
 import UIKit
 
+@IBDesignable
 open class AutoScrollView: UIScrollView, ResponderObserving, KeyboardObserving {
     
     // MARK: - Properties
@@ -18,7 +19,7 @@ open class AutoScrollView: UIScrollView, ResponderObserving, KeyboardObserving {
         }
     }
     
-    var responderObservingPool: [UIResponder : AnyObject?] = [:]
+    public var responderObservingPool: [UIResponder : AnyObject?] = [:]
     
     // MARK: - Initialization
 
@@ -50,7 +51,7 @@ open class AutoScrollView: UIScrollView, ResponderObserving, KeyboardObserving {
     
     // MARK: - KeyboardObserving
     
-    func keyboardWillShow(_ sender: Notification) {
+    public func keyboardWillShow(_ sender: Notification) {
         guard
             let keyboardHeight = (sender.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue.height,
             let duration = sender.userInfo?[UIKeyboardAnimationDurationUserInfoKey] as? TimeInterval,
@@ -77,8 +78,12 @@ open class AutoScrollView: UIScrollView, ResponderObserving, KeyboardObserving {
         }, completion: nil)
     }
     
-    func keyboardWillHide(_ sender: Notification) {
+    public func keyboardWillHide(_ sender: Notification) {
         contentInset = UIEdgeInsets.zero
     }
+    
+    public func keyboardDidShow(_ sender: Notification) { }
+    
+    public func keyboardDidHide(_ sender: Notification) { }
     
 }
