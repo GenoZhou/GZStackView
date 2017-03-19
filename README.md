@@ -11,7 +11,7 @@ So why not having a UIStackViewController for UIStackView?
 
 ### [DEPRECATED]
 
-#### This repo is no longer maintained, please go checkout my new approach [GZForm](https://github.com/GenoZhou/GZStackView).
+### This repo is no longer maintained, please go checkout my new approach [GZForm](https://github.com/GenoZhou/GZForm).
 
 3 key components of this framework are **AutoScrollView** class, **StackViewContainer** protocol, and **StackViewItem** protocol.
 
