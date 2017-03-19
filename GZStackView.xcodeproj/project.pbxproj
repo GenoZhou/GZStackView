@@ -10,12 +10,6 @@
 		090D60081E78DED500F22748 /* GZStackView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 090D5FFE1E78DED500F22748 /* GZStackView.framework */; };
 		090D600D1E78DED500F22748 /* GZStackViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090D600C1E78DED500F22748 /* GZStackViewTests.swift */; };
 		090D600F1E78DED500F22748 /* GZStackView.h in Headers */ = {isa = PBXBuildFile; fileRef = 090D60011E78DED500F22748 /* GZStackView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		090D60211E78DF4900F22748 /* AutoScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090D60191E78DF4900F22748 /* AutoScrollView.swift */; };
-		090D60221E78DF4900F22748 /* BaseSeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090D601A1E78DF4900F22748 /* BaseSeparatorView.swift */; };
-		090D60241E78DF4900F22748 /* KeyboardObserving.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090D601D1E78DF4900F22748 /* KeyboardObserving.swift */; };
-		090D60251E78DF4900F22748 /* ResponderObserving.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090D601E1E78DF4900F22748 /* ResponderObserving.swift */; };
-		090D60261E78DF4900F22748 /* StackViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090D601F1E78DF4900F22748 /* StackViewContainer.swift */; };
-		090D60271E78DF4900F22748 /* StackViewItem + Separator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090D60201E78DF4900F22748 /* StackViewItem + Separator.swift */; };
 		090D602F1E78E1EB00F22748 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090D602E1E78E1EB00F22748 /* AppDelegate.swift */; };
 		090D60311E78E1EB00F22748 /* SimpleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090D60301E78E1EB00F22748 /* SimpleViewController.swift */; };
 		090D60341E78E1EB00F22748 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 090D60321E78E1EB00F22748 /* Main.storyboard */; };
@@ -23,9 +17,15 @@
 		090D60391E78E1EB00F22748 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 090D60371E78E1EB00F22748 /* LaunchScreen.storyboard */; };
 		090D603F1E78E28800F22748 /* IBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090D603E1E78E28800F22748 /* IBViewController.swift */; };
 		090D60461E78E5AE00F22748 /* TextFieldRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090D60451E78E5AE00F22748 /* TextFieldRow.swift */; };
-		090D604F1E78EFEB00F22748 /* BaseStackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090D604E1E78EFEB00F22748 /* BaseStackViewController.swift */; };
 		090D60501E78F00300F22748 /* GZStackView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 090D5FFE1E78DED500F22748 /* GZStackView.framework */; };
 		090D60511E78F00300F22748 /* GZStackView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 090D5FFE1E78DED500F22748 /* GZStackView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0997F2B01E7E05C700071718 /* AutoScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0997F2A91E7E05C700071718 /* AutoScrollView.swift */; };
+		0997F2B11E7E05C700071718 /* BaseSeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0997F2AA1E7E05C700071718 /* BaseSeparatorView.swift */; };
+		0997F2B21E7E05C700071718 /* BaseStackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0997F2AB1E7E05C700071718 /* BaseStackViewController.swift */; };
+		0997F2B31E7E05C700071718 /* KeyboardObserving.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0997F2AC1E7E05C700071718 /* KeyboardObserving.swift */; };
+		0997F2B41E7E05C700071718 /* ResponderObserving.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0997F2AD1E7E05C700071718 /* ResponderObserving.swift */; };
+		0997F2B51E7E05C700071718 /* StackViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0997F2AE1E7E05C700071718 /* StackViewContainer.swift */; };
+		0997F2B61E7E05C700071718 /* StackViewItem + Separator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0997F2AF1E7E05C700071718 /* StackViewItem + Separator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,12 +66,6 @@
 		090D60071E78DED500F22748 /* GZStackViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GZStackViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		090D600C1E78DED500F22748 /* GZStackViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GZStackViewTests.swift; sourceTree = "<group>"; };
 		090D600E1E78DED500F22748 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		090D60191E78DF4900F22748 /* AutoScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoScrollView.swift; sourceTree = "<group>"; };
-		090D601A1E78DF4900F22748 /* BaseSeparatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseSeparatorView.swift; sourceTree = "<group>"; };
-		090D601D1E78DF4900F22748 /* KeyboardObserving.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardObserving.swift; sourceTree = "<group>"; };
-		090D601E1E78DF4900F22748 /* ResponderObserving.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponderObserving.swift; sourceTree = "<group>"; };
-		090D601F1E78DF4900F22748 /* StackViewContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackViewContainer.swift; sourceTree = "<group>"; };
-		090D60201E78DF4900F22748 /* StackViewItem + Separator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "StackViewItem + Separator.swift"; sourceTree = "<group>"; };
 		090D602C1E78E1EB00F22748 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		090D602E1E78E1EB00F22748 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		090D60301E78E1EB00F22748 /* SimpleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleViewController.swift; sourceTree = "<group>"; };
@@ -81,7 +75,13 @@
 		090D603A1E78E1EB00F22748 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		090D603E1E78E28800F22748 /* IBViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IBViewController.swift; sourceTree = "<group>"; };
 		090D60451E78E5AE00F22748 /* TextFieldRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldRow.swift; sourceTree = "<group>"; };
-		090D604E1E78EFEB00F22748 /* BaseStackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseStackViewController.swift; sourceTree = "<group>"; };
+		0997F2A91E7E05C700071718 /* AutoScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoScrollView.swift; sourceTree = "<group>"; };
+		0997F2AA1E7E05C700071718 /* BaseSeparatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseSeparatorView.swift; sourceTree = "<group>"; };
+		0997F2AB1E7E05C700071718 /* BaseStackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseStackViewController.swift; sourceTree = "<group>"; };
+		0997F2AC1E7E05C700071718 /* KeyboardObserving.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardObserving.swift; sourceTree = "<group>"; };
+		0997F2AD1E7E05C700071718 /* ResponderObserving.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponderObserving.swift; sourceTree = "<group>"; };
+		0997F2AE1E7E05C700071718 /* StackViewContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackViewContainer.swift; sourceTree = "<group>"; };
+		0997F2AF1E7E05C700071718 /* StackViewItem + Separator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "StackViewItem + Separator.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,8 +134,8 @@
 		090D60001E78DED500F22748 /* GZStackView */ = {
 			isa = PBXGroup;
 			children = (
-				090D60181E78DF4900F22748 /* Classes */,
-				090D601C1E78DF4900F22748 /* Protocols */,
+				0997F2B71E7E05D200071718 /* Classes */,
+				0997F2B81E7E05E200071718 /* Protocols */,
 				090D60011E78DED500F22748 /* GZStackView.h */,
 				090D60021E78DED500F22748 /* Info.plist */,
 			);
@@ -151,27 +151,6 @@
 			path = GZStackViewTests;
 			sourceTree = "<group>";
 		};
-		090D60181E78DF4900F22748 /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				090D60191E78DF4900F22748 /* AutoScrollView.swift */,
-				090D601A1E78DF4900F22748 /* BaseSeparatorView.swift */,
-				090D604E1E78EFEB00F22748 /* BaseStackViewController.swift */,
-			);
-			path = Classes;
-			sourceTree = "<group>";
-		};
-		090D601C1E78DF4900F22748 /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				090D601D1E78DF4900F22748 /* KeyboardObserving.swift */,
-				090D601E1E78DF4900F22748 /* ResponderObserving.swift */,
-				090D601F1E78DF4900F22748 /* StackViewContainer.swift */,
-				090D60201E78DF4900F22748 /* StackViewItem + Separator.swift */,
-			);
-			path = Protocols;
-			sourceTree = "<group>";
-		};
 		090D602D1E78E1EB00F22748 /* Example */ = {
 			isa = PBXGroup;
 			children = (
@@ -185,6 +164,27 @@
 				090D603A1E78E1EB00F22748 /* Info.plist */,
 			);
 			path = Example;
+			sourceTree = "<group>";
+		};
+		0997F2B71E7E05D200071718 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				0997F2A91E7E05C700071718 /* AutoScrollView.swift */,
+				0997F2AA1E7E05C700071718 /* BaseSeparatorView.swift */,
+				0997F2AB1E7E05C700071718 /* BaseStackViewController.swift */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		0997F2B81E7E05E200071718 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				0997F2AC1E7E05C700071718 /* KeyboardObserving.swift */,
+				0997F2AD1E7E05C700071718 /* ResponderObserving.swift */,
+				0997F2AE1E7E05C700071718 /* StackViewContainer.swift */,
+				0997F2AF1E7E05C700071718 /* StackViewItem + Separator.swift */,
+			);
+			name = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -269,6 +269,7 @@
 					090D5FFD1E78DED500F22748 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 6GSRA2VTY3;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 					090D60061E78DED500F22748 = {
@@ -335,13 +336,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				090D60211E78DF4900F22748 /* AutoScrollView.swift in Sources */,
-				090D60271E78DF4900F22748 /* StackViewItem + Separator.swift in Sources */,
-				090D604F1E78EFEB00F22748 /* BaseStackViewController.swift in Sources */,
-				090D60251E78DF4900F22748 /* ResponderObserving.swift in Sources */,
-				090D60261E78DF4900F22748 /* StackViewContainer.swift in Sources */,
-				090D60241E78DF4900F22748 /* KeyboardObserving.swift in Sources */,
-				090D60221E78DF4900F22748 /* BaseSeparatorView.swift in Sources */,
+				0997F2B01E7E05C700071718 /* AutoScrollView.swift in Sources */,
+				0997F2B61E7E05C700071718 /* StackViewItem + Separator.swift in Sources */,
+				0997F2B21E7E05C700071718 /* BaseStackViewController.swift in Sources */,
+				0997F2B41E7E05C700071718 /* ResponderObserving.swift in Sources */,
+				0997F2B51E7E05C700071718 /* StackViewContainer.swift in Sources */,
+				0997F2B31E7E05C700071718 /* KeyboardObserving.swift in Sources */,
+				0997F2B11E7E05C700071718 /* BaseSeparatorView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -501,6 +502,7 @@
 		090D60131E78DED500F22748 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 6GSRA2VTY3;
@@ -514,6 +516,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.genozhou.GZStackView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -521,6 +524,7 @@
 		090D60141E78DED500F22748 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 6GSRA2VTY3;
@@ -613,6 +617,7 @@
 				090D60141E78DED500F22748 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		090D60151E78DED500F22748 /* Build configuration list for PBXNativeTarget "GZStackViewTests" */ = {
 			isa = XCConfigurationList;
@@ -621,6 +626,7 @@
 				090D60171E78DED500F22748 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		090D603B1E78E1EB00F22748 /* Build configuration list for PBXNativeTarget "Example" */ = {
 			isa = XCConfigurationList;
@@ -629,6 +635,7 @@
 				090D603D1E78E1EB00F22748 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

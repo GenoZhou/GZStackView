@@ -1,8 +1,8 @@
 Pod::Spec.new do |s|
   s.name          = "GZStackView"
   s.module_name   = "GZStackView"
-  s.version       = "1.0.5"
-  s.summary       = "Protocol oriented approach of creating fully featured StackViewController in Swift3"
+  s.version       = "1.0.6"
+  s.summary       = "Enable stack view with auto-scrolling, separators, background color, etc. In Swift 3."
   s.description      = <<-DESC
 UIKit has UITableViewController for UITableView, as well as having UICollectionViewController for UICollectionView.
 So why not having a UIStackViewController for UIStackView?

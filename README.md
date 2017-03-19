@@ -9,11 +9,15 @@ So why not having a UIStackViewController for UIStackView?
 
 ## Overview
 
+### [DEPRECATED]
+
+#### This repo is no longer maintained, please go checkout my new approach [GZForm](https://github.com/GenoZhou/GZStackView).
+
 3 key components of this framework are **AutoScrollView** class, **StackViewContainer** protocol, and **StackViewItem** protocol.
 
-**AutoScrollView** subclasses UIView and add autoscrolling feature by observing keyboard and first responder. 
+**AutoScrollView** subclasses UIView and add autoscrolling feature by observing keyboard and first responder.
 
-**StackViewContainer** sets the requirements of creating a fully featured UIStackView wrapper and provides various extensions to add/remove items while keeping everything managed internally in between auto scroll view and stack view. 
+**StackViewContainer** sets the requirements of creating a fully featured UIStackView wrapper and provides various extensions to add/remove items while keeping everything managed internally in between auto scroll view and stack view.
 
 As an example, **BaseStackViewController** class is included that implements the protocol to get features like autoscrolling for stack view, separator customization, background color property, etc;.
 
@@ -52,7 +56,7 @@ You can just grab BaseStackViewController, initiate an instance, or subclass fro
 
 An individual project 'Example' is included that demonstrates the approach of initiating BaseStackViewController instance and adding it as child controller.
 
-However, I **highly recommend** you to create your own view controller class that conforms to StackViewContainer protocol. 
+However, I **highly recommend** you to create your own view controller class that conforms to StackViewContainer protocol.
 
 BaseStackViewController is literally a good example that injects a pack of great features without defining any method.
 
