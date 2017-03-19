@@ -1,6 +1,6 @@
 # GZStackView
 
-[![Build Status](https://travis-ci.org/GenoZhou/StackViewController.svg?branch=master)](https://travis-ci.org/GenoZhou/StackViewController)
+[![Build Status](https://travis-ci.org/GenoZhou/GZStackView.svg?branch=master)](https://travis-ci.org/GenoZhou/GZStackView)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/genozhou/stackviewcontroller)
 
 UIKit has UITableViewController for UITableView, as well as having UICollectionViewController for UICollectionView.
